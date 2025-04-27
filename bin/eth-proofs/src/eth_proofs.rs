@@ -5,7 +5,7 @@ use eyre::eyre;
 use reqwest_middleware::{ClientBuilder, ClientWithMiddleware};
 use reqwest_retry::{policies::ExponentialBackoff, RetryTransientMiddleware};
 use rsp_host_executor::ExecutionHooks;
-use zkm_sdk::{ExecutionReport, HashableKey, SP1VerifyingKey};
+use zkm_sdk::{ExecutionReport, HashableKey, ZKMVerifyingKey};
 use tracing::error;
 
 #[derive(Debug, Clone)]
@@ -85,7 +85,7 @@ impl EthProofsClient {
         block_number: u64,
         execution_report: &ExecutionReport,
         elapsed: f32,
-        vk: &SP1VerifyingKey,
+        vk: &ZKMVerifyingKey,
     ) {
         let json = serde_json::json!({
             "proof": STANDARD.encode(proof_bytes),
@@ -137,7 +137,7 @@ impl ExecutionHooks for EthProofsClient {
         &self,
         block_number: u64,
         proof_bytes: &[u8],
-        vk: &SP1VerifyingKey,
+        vk: &ZKMVerifyingKey,
         execution_report: &ExecutionReport,
         proving_duration: Duration,
     ) -> eyre::Result<()> {

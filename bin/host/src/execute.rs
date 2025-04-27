@@ -159,7 +159,8 @@ impl PersistExecutionReport {
                 execution_report.cycle_tracker.get(COMPUTE_STATE_ROOT).unwrap_or(&0).to_string(),
             );
             record.push(execution_report.total_syscall_count().to_string());
-            record.push(execution_report.gas.unwrap_or_default().to_string());
+            // record.push(execution_report.gas.unwrap_or_default().to_string());
+            record.push(0.to_string());
 
             for s in SyscallCode::iter() {
                 record.push(execution_report.syscall_counts[s].to_string());
@@ -180,11 +181,13 @@ impl PersistExecutionReport {
 fn add_metrics(name: String, record: &mut Vec<String>, execution_report: &ExecutionReport) {
     let total = execution_report.cycle_tracker.get(&name).unwrap_or(&0);
 
-    let count = execution_report.invocation_tracker.get(&name).unwrap_or(&0);
+    // let count = execution_report.invocation_tracker.get(&name).unwrap_or(&0);
+    let count = 0;
 
     record.push(total.to_string());
     record.push(count.to_string());
-    record.push(total.checked_div(*count).unwrap_or(0).to_string());
+    // record.push(total.checked_div(*count).unwrap_or(0).to_string());
+    record.push(0.to_string());
 }
 
 impl ExecutionHooks for PersistExecutionReport {

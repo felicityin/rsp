@@ -16,7 +16,7 @@ use rsp_host_executor::{
 };
 use rsp_primitives::genesis::Genesis;
 use serde::{Deserialize, Serialize};
-use zkm_sdk::{include_elf, EnvProver, ExecutionReport};
+use zkm_sdk::{include_elf, ProverClient, ExecutionReport};
 use thousands::Separable;
 use url::Url;
 
@@ -43,7 +43,7 @@ async fn test_in_zkvm() {
         create_eth_block_execution_strategy_factory(&config.genesis, config.custom_beneficiary);
 
     let provider = RootProvider::<Ethereum>::new_http(rpc_url);
-    let client = Arc::new(EnvProver::new());
+    let client = Arc::new(ProverClient::new());
 
     let executor = build_executor::<EthExecutorComponents<_>, _>(
         elf,

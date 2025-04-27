@@ -2,7 +2,7 @@
 members = [
     "bin/host",
     "bin/continuous",
-    "bin/eth-proofs",
+    # "bin/eth-proofs",
     "crates/executor/client",
     "crates/executor/host",
     "crates/mpt",
@@ -52,10 +52,14 @@ rsp-primitives = { path = "./crates/primitives" }
 rsp-provider = { path = "./crates/provider" }
 
 # zkMIPS
-zkm-build = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-zkm-core-executor = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-zkm-prover = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-zkm-sdk = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+# zkm-build = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+# zkm-core-executor = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+# zkm-prover = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+# zkm-sdk = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-build = { path = "../zkMIPS/crates/build" }
+zkm-core-executor = { path = "../zkMIPS/crates/core/executor" }
+zkm-prover = { path = "../zkMIPS/crates/prover" }
+zkm-sdk = { path = "../zkMIPS/crates/sdk" }
 
 # reth
 reth-primitives-traits = { git = "https://github.com/paradigmxyz/reth", tag = "v1.3.10", default-features = false }
@@ -78,7 +82,7 @@ reth-optimism-forks = { git = "https://github.com/paradigmxyz/reth", tag = "v1.3
 # revm
 revm = { version = "22.0.1", features = [
     "serde",
-    "kzg-rs",
+    # "kzg-rs",
 ], default-features = false }
 revm-bytecode = { version = "3.0.0", default-features = false }
 revm-state = { version = "3.0.0", default-features = false }
@@ -147,8 +151,12 @@ rustdoc.all = "warn"
 
 [patch.crates-io]
 # Precompile patches
-sha2 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", tag = "patch-sha2-0.10.8-sp1-4.0.0", package = "sha2" }
-bn = { git = "https://github.com/sp1-patches/bn", tag = "patch-0.6.0-sp1-4.0.0", package = "substrate-bn" }
-sha3 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", tag = "patch-sha3-0.10.8-sp1-4.0.0" }
-k256 = { git = "https://github.com/sp1-patches/elliptic-curves", tag = "patch-k256-13.4-sp1-4.1.0" }
-p256 = { git = "https://github.com/sp1-patches/elliptic-curves", tag = "patch-p256-13.2-sp1-4.1.0" }
+sha2 = { git = "https://github.com/zkMIPS-patches/RustCrypto-hashes", branch = "patch-sha2-0.10.8", package = "sha2" }
+bn = { git = "https://github.com/zkMIPS-patches/bn", branch = "patch-0.6.0", package = "substrate-bn" }
+# sha3 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", tag = "patch-sha3-0.10.8-sp1-4.0.0" }
+# k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-k256-0.13.4" }
+# p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-p256-0.13.2" }
+# k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "k256" }
+# p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "p256" }
+k256 = { path = "../patch/elliptic-curves-k256/k256" }
+p256 = { path = "../patch/elliptic-curves-p256/p256" }

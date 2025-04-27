@@ -62,7 +62,7 @@ async fn main() -> eyre::Result<()> {
     let mut stream =
         subscription.into_stream().filter(|h| ready(h.number % args.block_interval == 0));
 
-    let mut builder = ProverClient::builder().cuda();
+    let mut builder = ProverClient::builder().cpu();
     if let Some(endpoint) = &args.moongate_endpoint {
         builder = builder.with_moongate_endpoint(endpoint)
     }

@@ -10,7 +10,7 @@ use rsp_host_executor::{
     OpExecutorComponents,
 };
 use rsp_provider::create_provider;
-use zkm_sdk::{include_elf, EnvProver};
+use zkm_sdk::{include_elf, ProverClient};
 use tracing_subscriber::{
     filter::EnvFilter, fmt, prelude::__tracing_subscriber_SubscriberExt, util::SubscriberInitExt,
 };
@@ -28,6 +28,8 @@ async fn main() -> eyre::Result<()> {
     if std::env::var("RUST_LOG").is_err() {
         std::env::set_var("RUST_LOG", "info");
     }
+
+    std::env::set_var("ZKM_PROVER", "local");
 
     // Initialize the logger.
     tracing_subscriber::registry()
@@ -52,7 +54,7 @@ async fn main() -> eyre::Result<()> {
         args.opcode_tracking,
     );
 
-    let prover_client = Arc::new(EnvProver::new());
+    let prover_client = Arc::new(ProverClient::new());
 
     if config.chain.is_optimism() {
         let elf = include_elf!("rsp-client-op").to_vec();

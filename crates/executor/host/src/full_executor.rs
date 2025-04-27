@@ -13,9 +13,9 @@ use revm_primitives::B256;
 use rsp_client_executor::io::ClientExecutorInput;
 use rsp_rpc_db::RpcDb;
 use serde::de::DeserializeOwned;
-use zkm_prover::components::CpuProverComponents;
+use zkm_prover::components::DefaultProverComponents;
 use zkm_sdk::{
-    ExecutionReport, Prover, ZKMProofMode, ZKMProvingKey, ZKMPublicValues, ZKMStdin,
+    ExecutionReport, Prover, ZKMProofKind, ZKMProvingKey, ZKMPublicValues, ZKMStdin,
     ZKMVerifyingKey,
 };
 use tokio::{task, time::sleep};
@@ -75,7 +75,7 @@ pub trait BlockExecutor<C: ExecutorComponents> {
         &self,
         client_input: ClientExecutorInput<C::Primitives>,
         hooks: &C::Hooks,
-        prove_mode: Option<ZKMProofMode>,
+        prove_mode: Option<ZKMProofKind>,
     ) -> eyre::Result<()> {
         // Generate the proof.
         // Execute the block inside the zkVM.
@@ -107,7 +107,7 @@ pub trait BlockExecutor<C: ExecutorComponents> {
             let pk = self.pk();
 
             let proof = task::spawn_blocking(move || {
-                client.prove(pk.as_ref(), &stdin, prove_mode).map_err(|err| eyre::eyre!("{err}"))
+                client.prove(pk.as_ref(), stdin, Default::default(), Default::default(), prove_mode).map_err(|err| eyre::eyre!("{err}"))
             })
             .await
             .map_err(|err| eyre::eyre!("{err}"))??;
@@ -321,7 +321,7 @@ where
     pk: Arc<ZKMProvingKey>,
     vk: Arc<ZKMVerifyingKey>,
     hooks: C::Hooks,
-    prove_mode: Option<ZKMProofMode>,
+    prove_mode: Option<ZKMProofKind>,
 }
 
 impl<C> CachedExecutor<C>
@@ -334,7 +334,7 @@ where
         hooks: C::Hooks,
         cache_dir: PathBuf,
         chain_id: u64,
-        prove_mode: Option<ZKMProofMode>,
+        prove_mode: Option<ZKMProofKind>,
     ) -> eyre::Result<Self> {
         let cloned_client = client.clone();
 
@@ -395,7 +395,7 @@ where
 }
 
 // Block execution in zkMIPS is a long-running, blocking task, so run it in a separate thread.
-async fn execute_client<P: Prover<CpuProverComponents> + 'static>(
+async fn execute_client<P: Prover<DefaultProverComponents> + 'static>(
     number: u64,
     client: Arc<P>,
     pk: Arc<ZKMProvingKey>,

@@ -2,7 +2,7 @@ use alloy_chains::Chain;
 use clap::Parser;
 use rsp_host_executor::Config;
 use rsp_primitives::genesis::Genesis;
-use zkm_sdk::ZKMProofMode;
+use zkm_sdk::ZKMProofKind;
 use url::Url;
 
 /// The arguments for the cli.
@@ -53,7 +53,7 @@ impl Args {
             rpc_url: Some(self.http_rpc_url.clone()),
             cache_dir: None,
             custom_beneficiary: None,
-            prove_mode: (!self.execute_only).then_some(SP1ProofMode::Compressed),
+            prove_mode: (!self.execute_only).then_some(ZKMProofKind::Compressed),
             opcode_tracking: false,
         };
 

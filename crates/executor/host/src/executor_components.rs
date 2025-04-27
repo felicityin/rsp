@@ -14,13 +14,13 @@ use rsp_client_executor::{
     custom::CustomEvmFactory, IntoInput, IntoPrimitives, ValidateBlockPostExecution,
 };
 use serde::de::DeserializeOwned;
-use zkm_prover::components::CpuProverComponents;
-use zkm_sdk::{EnvProver, Prover};
+use zkm_prover::components::DefaultProverComponents;
+use zkm_sdk::{ProverClient, Prover};
 
 use crate::ExecutionHooks;
 
 pub trait ExecutorComponents {
-    type Prover: Prover<CpuProverComponents> + 'static;
+    type Prover: Prover<DefaultProverComponents> + 'static;
 
     type Network: Network;
 
@@ -36,14 +36,14 @@ pub trait ExecutorComponents {
 }
 
 #[derive(Debug, Default)]
-pub struct EthExecutorComponents<H, P = EnvProver> {
+pub struct EthExecutorComponents<H, P = ProverClient> {
     phantom: PhantomData<(H, P)>,
 }
 
 impl<H, P> ExecutorComponents for EthExecutorComponents<H, P>
 where
     H: ExecutionHooks,
-    P: Prover<CpuProverComponents> + 'static,
+    P: Prover<DefaultProverComponents> + 'static,
 {
     type Prover = P;
 
@@ -57,14 +57,14 @@ where
 }
 
 #[derive(Debug, Default)]
-pub struct OpExecutorComponents<H, P = EnvProver> {
+pub struct OpExecutorComponents<H, P = ProverClient> {
     phantom: PhantomData<(H, P)>,
 }
 
 impl<H, P> ExecutorComponents for OpExecutorComponents<H, P>
 where
     H: ExecutionHooks,
-    P: Prover<CpuProverComponents> + 'static,
+    P: Prover<DefaultProverComponents> + 'static,
 {
     type Prover = P;
 
