@@ -14,8 +14,8 @@ use rsp_client_executor::{
     custom::CustomEvmFactory, IntoInput, IntoPrimitives, ValidateBlockPostExecution,
 };
 use serde::de::DeserializeOwned;
-use sp1_prover::components::CpuProverComponents;
-use sp1_sdk::{EnvProver, Prover};
+use zkm_prover::components::CpuProverComponents;
+use zkm_sdk::{EnvProver, Prover};
 
 use crate::ExecutionHooks;
 

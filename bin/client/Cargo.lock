@@ -541,6 +541,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "anyhow"
+version = "1.0.98"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e16d2d3311acee920a9eb8d33b8cbc1787ce4a264e85f964c2404b969bdcd487"
+
+[[package]]
 name = "arbitrary"
 version = "1.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1381,15 +1387,19 @@ checksum = "1c7a8fb8a9fbf66c1f703fe16184d10ca0ee9d23be5b4436400408ba54a95005"
 [[package]]
 name = "ecdsa"
 version = "0.16.9"
-source = "git+https://github.com/sp1-patches/signatures.git?tag=patch-16.9-sp1-4.1.0#1880299a48fe7ef249edaa616fd411239fb5daf1"
+source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#1479d575d8a12498fbde8492781d175c80cb41bc"
 dependencies = [
+ "anyhow",
+ "cfg-if",
  "der",
  "digest 0.10.7",
  "elliptic-curve",
+ "hex-literal",
  "rfc6979",
  "serdect",
  "signature",
  "spki",
+ "zkm-lib 1.0.0 (git+https://github.com/zkMIPS/zkMIPS.git)",
 ]
 
 [[package]]
@@ -1720,6 +1730,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "hex-literal"
+version = "0.4.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6fe2267d4ed49bc07b63801559be28c718ea06c4738b7a03c94df7386d2cde46"
+
+[[package]]
 name = "hkdf"
 version = "0.12.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2025,7 +2041,7 @@ dependencies = [
 [[package]]
 name = "k256"
 version = "0.13.4"
-source = "git+https://github.com/sp1-patches/elliptic-curves?tag=patch-k256-13.4-sp1-4.1.0#dbb97456cb6bda207eb212011ac834582263e88b"
+source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=patch-k256-0.13.4#c1610b5b616d1cf0eaae5708839d4b07e249bd96"
 dependencies = [
  "cfg-if",
  "ecdsa",
@@ -2034,7 +2050,7 @@ dependencies = [
  "once_cell",
  "serdect",
  "sha2",
- "sp1-lib",
+ "zkm-lib 1.0.0 (git+https://github.com/zkMIPS/zkMIPS.git)",
 ]
 
 [[package]]
@@ -3449,7 +3465,7 @@ dependencies = [
 [[package]]
 name = "rfc6979"
 version = "0.4.0"
-source = "git+https://github.com/sp1-patches/signatures.git?tag=patch-16.9-sp1-4.1.0#1880299a48fe7ef249edaa616fd411239fb5daf1"
+source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#1479d575d8a12498fbde8492781d175c80cb41bc"
 dependencies = [
  "hmac",
  "subtle",
@@ -3490,8 +3506,8 @@ dependencies = [
  "bincode",
  "log",
  "rsp-client-executor",
- "sp1-zkvm",
  "tracing",
+ "zkm-zkvm",
 ]
 
 [[package]]
@@ -3794,7 +3810,7 @@ dependencies = [
 [[package]]
 name = "sha2"
 version = "0.10.8"
-source = "git+https://github.com/sp1-patches/RustCrypto-hashes?tag=patch-sha2-0.10.8-sp1-4.0.0#1f224388fdede7cef649bce0d63876d1a9e3f515"
+source = "git+https://github.com/zkMIPS-patches/RustCrypto-hashes?branch=patch-sha2-0.10.8#62d9223ba171ef6d5b637b275c4b982f56d0a949"
 dependencies = [
  "cfg-if",
  "cpufeatures",
@@ -3867,7 +3883,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0e4b2747ae411bca4ba0dd4112779246b101ac7e8f70afc1a33cf8ee003980d7"
 dependencies = [
  "bincode",
- "elliptic-curve",
  "serde",
  "sp1-primitives",
 ]
@@ -3888,22 +3903,6 @@ dependencies = [
  "p3-symmetric",
  "serde",
  "sha2",
-]
-
-[[package]]
-name = "sp1-zkvm"
-version = "4.1.7"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "92e382d2a6c183d602393e58881887fe91df32cc65965dd0be1f64e6fd689d73"
-dependencies = [
- "cfg-if",
- "getrandom 0.2.15",
- "lazy_static",
- "libm",
- "rand 0.8.5",
- "sha2",
- "sp1-lib",
- "sp1-primitives",
 ]
 
 [[package]]
@@ -4761,6 +4760,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "zkm-lib"
+version = "1.0.0"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#bd48abffa5cd8d80fb60eff5ae40f764031bb31a"
+dependencies = [
+ "bincode",
+ "cfg-if",
+ "elliptic-curve",
+ "serde",
+ "sha2",
+]
+
+[[package]]
+name = "zkm-lib"
+version = "1.0.0"
+source = "git+https://github.com/zkMIPS/zkMIPS.git#e44baab1da54fba7c94241896e69f54431d743a0"
+dependencies = [
+ "bincode",
+ "cfg-if",
+ "elliptic-curve",
+ "serde",
+ "sha2",
+]
+
+[[package]]
+name = "zkm-zkvm"
+version = "1.0.0"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#bd48abffa5cd8d80fb60eff5ae40f764031bb31a"
+dependencies = [
+ "bincode",
+ "cfg-if",
+ "getrandom 0.2.15",
+ "lazy_static",
+ "libm",
+ "rand 0.8.5",
+ "serde",
+ "sha2",
+ "zkm-lib 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+]
+
+[[package]]
 name = "zstd"
 version = "0.13.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4791,9 +4830,9 @@ dependencies = [
 [[patch.unused]]
 name = "substrate-bn"
 version = "0.6.0"
-source = "git+https://github.com/sp1-patches/bn?tag=patch-0.6.0-sp1-4.0.0#1bd84110963662fae88baa5ad07c9ab92b6acdbb"
+source = "git+https://github.com/zkMIPS-patches/bn?branch=patch-0.6.0#f7abdf37eda884458b940307a2cde9b97b1f1d92"
 
 [[patch.unused]]
 name = "p256"
 version = "0.13.2"
-source = "git+https://github.com/sp1-patches/elliptic-curves?tag=patch-p256-13.2-sp1-4.1.0#f527279b192e0d1b293108af2faee513495411ca"
+source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=patch-p256-0.13.2#0dc82f23821e816e2d57116b85025472ed9f88c0"

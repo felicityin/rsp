@@ -5,7 +5,7 @@ use eyre::eyre;
 use reqwest_middleware::{ClientBuilder, ClientWithMiddleware};
 use reqwest_retry::{policies::ExponentialBackoff, RetryTransientMiddleware};
 use rsp_host_executor::ExecutionHooks;
-use sp1_sdk::{ExecutionReport, HashableKey, SP1VerifyingKey};
+use zkm_sdk::{ExecutionReport, HashableKey, SP1VerifyingKey};
 use tracing::error;
 
 #[derive(Debug, Clone)]

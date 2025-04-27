@@ -13,10 +13,10 @@ use revm_primitives::B256;
 use rsp_client_executor::io::ClientExecutorInput;
 use rsp_rpc_db::RpcDb;
 use serde::de::DeserializeOwned;
-use sp1_prover::components::CpuProverComponents;
-use sp1_sdk::{
-    ExecutionReport, Prover, SP1ProofMode, SP1ProvingKey, SP1PublicValues, SP1Stdin,
-    SP1VerifyingKey,
+use zkm_prover::components::CpuProverComponents;
+use zkm_sdk::{
+    ExecutionReport, Prover, ZKMProofMode, ZKMProvingKey, ZKMPublicValues, ZKMStdin,
+    ZKMVerifyingKey,
 };
 use tokio::{task, time::sleep};
 use tracing::{info, info_span, warn};
@@ -66,20 +66,20 @@ pub trait BlockExecutor<C: ExecutorComponents> {
 
     fn client(&self) -> Arc<C::Prover>;
 
-    fn pk(&self) -> Arc<SP1ProvingKey>;
+    fn pk(&self) -> Arc<ZKMProvingKey>;
 
-    fn vk(&self) -> Arc<SP1VerifyingKey>;
+    fn vk(&self) -> Arc<ZKMVerifyingKey>;
 
     #[allow(async_fn_in_trait)]
     async fn process_client(
         &self,
         client_input: ClientExecutorInput<C::Primitives>,
         hooks: &C::Hooks,
-        prove_mode: Option<SP1ProofMode>,
+        prove_mode: Option<ZKMProofMode>,
     ) -> eyre::Result<()> {
         // Generate the proof.
         // Execute the block inside the zkVM.
-        let mut stdin = SP1Stdin::new();
+        let mut stdin = ZKMStdin::new();
         let buffer = bincode::serialize(&client_input).unwrap();
 
         stdin.write_vec(buffer);
@@ -151,14 +151,14 @@ where
         }
     }
 
-    fn pk(&self) -> Arc<SP1ProvingKey> {
+    fn pk(&self) -> Arc<ZKMProvingKey> {
         match self {
             Either::Left(ref executor) => executor.pk.clone(),
             Either::Right(ref executor) => executor.pk.clone(),
         }
     }
 
-    fn vk(&self) -> Arc<SP1VerifyingKey> {
+    fn vk(&self) -> Arc<ZKMVerifyingKey> {
         match self {
             Either::Left(ref executor) => executor.vk.clone(),
             Either::Right(ref executor) => executor.vk.clone(),
@@ -174,8 +174,8 @@ where
     provider: P,
     host_executor: HostExecutor<C::EvmConfig>,
     client: Arc<C::Prover>,
-    pk: Arc<SP1ProvingKey>,
-    vk: Arc<SP1VerifyingKey>,
+    pk: Arc<ZKMProvingKey>,
+    vk: Arc<ZKMVerifyingKey>,
     hooks: C::Hooks,
     config: Config,
 }
@@ -292,11 +292,11 @@ where
         self.client.clone()
     }
 
-    fn pk(&self) -> Arc<SP1ProvingKey> {
+    fn pk(&self) -> Arc<ZKMProvingKey> {
         self.pk.clone()
     }
 
-    fn vk(&self) -> Arc<SP1VerifyingKey> {
+    fn vk(&self) -> Arc<ZKMVerifyingKey> {
         self.vk.clone()
     }
 }
@@ -318,10 +318,10 @@ where
     cache_dir: PathBuf,
     chain_id: u64,
     client: Arc<C::Prover>,
-    pk: Arc<SP1ProvingKey>,
-    vk: Arc<SP1VerifyingKey>,
+    pk: Arc<ZKMProvingKey>,
+    vk: Arc<ZKMVerifyingKey>,
     hooks: C::Hooks,
-    prove_mode: Option<SP1ProofMode>,
+    prove_mode: Option<ZKMProofMode>,
 }
 
 impl<C> CachedExecutor<C>
@@ -334,7 +334,7 @@ where
         hooks: C::Hooks,
         cache_dir: PathBuf,
         chain_id: u64,
-        prove_mode: Option<SP1ProofMode>,
+        prove_mode: Option<ZKMProofMode>,
     ) -> eyre::Result<Self> {
         let cloned_client = client.clone();
 
@@ -376,11 +376,11 @@ where
         self.client.clone()
     }
 
-    fn pk(&self) -> Arc<SP1ProvingKey> {
+    fn pk(&self) -> Arc<ZKMProvingKey> {
         self.pk.clone()
     }
 
-    fn vk(&self) -> Arc<SP1VerifyingKey> {
+    fn vk(&self) -> Arc<ZKMVerifyingKey> {
         self.vk.clone()
     }
 }
@@ -394,13 +394,13 @@ where
     }
 }
 
-// Block execution in SP1 is a long-running, blocking task, so run it in a separate thread.
+// Block execution in zkMIPS is a long-running, blocking task, so run it in a separate thread.
 async fn execute_client<P: Prover<CpuProverComponents> + 'static>(
     number: u64,
     client: Arc<P>,
-    pk: Arc<SP1ProvingKey>,
-    stdin: SP1Stdin,
-) -> eyre::Result<(SP1Stdin, eyre::Result<(SP1PublicValues, ExecutionReport)>)> {
+    pk: Arc<ZKMProvingKey>,
+    stdin: ZKMStdin,
+) -> eyre::Result<(ZKMStdin, eyre::Result<(ZKMPublicValues, ExecutionReport)>)> {
     task::spawn_blocking(move || {
         info_span!("execute_client", number).in_scope(|| {
             let result = client.execute(&pk.elf, &stdin);

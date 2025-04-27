@@ -16,7 +16,7 @@ use rsp_host_executor::{
 };
 use rsp_primitives::genesis::Genesis;
 use serde::{Deserialize, Serialize};
-use sp1_sdk::{include_elf, EnvProver, ExecutionReport};
+use zkm_sdk::{include_elf, EnvProver, ExecutionReport};
 use thousands::Separable;
 use url::Url;
 

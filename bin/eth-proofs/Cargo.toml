@@ -26,8 +26,8 @@ rsp-client-executor.workspace = true
 rsp-primitives.workspace = true
 rsp-provider.workspace = true
 
-# sp1
-sp1-sdk.workspace = true
+# zkMIPS
+zkm-sdk.workspace = true
 
 # alloy
 alloy-chains.workspace = true
@@ -37,4 +37,4 @@ alloy-transport.workspace = true
 alloy-transport-ws.workspace = true
 
 [build-dependencies]
-sp1-build.workspace = true
+zkm-build.workspace = true

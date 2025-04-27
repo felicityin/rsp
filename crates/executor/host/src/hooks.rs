@@ -2,7 +2,7 @@ use std::{future::Future, time::Duration};
 
 use alloy_consensus::Block;
 use reth_primitives_traits::NodePrimitives;
-use sp1_sdk::{ExecutionReport, SP1VerifyingKey};
+use zkm_sdk::{ExecutionReport, ZKMVerifyingKey};
 
 pub trait ExecutionHooks: Send {
     fn on_execution_start(
@@ -28,7 +28,7 @@ pub trait ExecutionHooks: Send {
         &self,
         _block_number: u64,
         _proof_bytes: &[u8],
-        _vk: &SP1VerifyingKey,
+        _vk: &ZKMVerifyingKey,
         _execution_report: &ExecutionReport,
         _proving_duration: Duration,
     ) -> impl Future<Output = eyre::Result<()>> {

@@ -51,12 +51,11 @@ rsp-mpt = { path = "./crates/mpt" }
 rsp-primitives = { path = "./crates/primitives" }
 rsp-provider = { path = "./crates/provider" }
 
-
-# sp1
-sp1-build = "4.2.0"
-sp1-core-executor = "4.2.0"
-sp1-prover = "4.2.0"
-sp1-sdk = "4.2.0"
+# zkMIPS
+zkm-build = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-core-executor = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-prover = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-sdk = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
 
 # reth
 reth-primitives-traits = { git = "https://github.com/paradigmxyz/reth", tag = "v1.3.10", default-features = false }
@@ -116,6 +115,19 @@ alloy-transport-http = { version = "0.14.0", features = [
 alloy-transport-ws = { version = "0.14.0" }
 alloy-rpc-client = { version = "0.14.0", default-features = false }
 alloy-eips = { version = "0.14.0", default-features = false }
+
+# alloy-json-rpc = { version = "0.5", default-features = false }
+# alloy-genesis = { version = "0.5", default-features = false }
+# alloy-consensus = { version = "0.5", default-features = false, features = ["serde", "serde-bincode-compat"] }
+# alloy-network = { version = "0.5", default-features = false }
+# alloy-transport = { version = "0.5", default-features = false }
+# alloy-transport-http = { version = "0.5", features = [
+#     "reqwest-rustls-tls",
+# ], default-features = false }
+# alloy-transport-ws = { version = "0.5" }
+# alloy-rpc-client = { version = "0.5", default-features = false }
+# alloy-eips = { version = "0.5", default-features = false }
+
 alloy-rlp = "0.3.10"
 alloy-trie = "0.8.1"
 

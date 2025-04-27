@@ -20,8 +20,8 @@ rsp-host-executor = { workspace = true, features = ["alerting"] }
 rsp-client-executor.workspace = true
 rsp-provider.workspace = true
 
-# sp1
-sp1-sdk.workspace = true
+# zkMIPS
+zkm-sdk.workspace = true
 
 # alloy
 alloy-consensus.workspace = true
@@ -35,4 +35,4 @@ reth-evm.workspace = true
 reth-primitives-traits.workspace = true
 
 [build-dependencies]
-sp1-build.workspace = true
+zkm-build.workspace = true

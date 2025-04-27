@@ -1,5 +1,5 @@
 #![no_main]
-sp1_zkvm::entrypoint!(main);
+zkm_zkvm::entrypoint!(main);
 
 use rsp_client_executor::{
     executor::{OpClientExecutor, DESERIALZE_INPUTS},
@@ -10,7 +10,7 @@ use std::sync::Arc;
 pub fn main() {
     // Read the input.
     println!("cycle-tracker-report-start: {}", DESERIALZE_INPUTS);
-    let input = sp1_zkvm::io::read_vec();
+    let input = zkm_zkvm::io::read_vec();
     let input = bincode::deserialize::<OpClientExecutorInput>(&input).unwrap();
     println!("cycle-tracker-report-end: {}", DESERIALZE_INPUTS);
 
@@ -20,5 +20,5 @@ pub fn main() {
     let block_hash = header.hash_slow();
 
     // Commit the block hash.
-    sp1_zkvm::io::commit(&block_hash);
+    zkm_zkvm::io::commit(&block_hash);
 }

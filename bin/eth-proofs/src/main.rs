@@ -10,7 +10,7 @@ use rsp_host_executor::{
     EthExecutorComponents, FullExecutor,
 };
 use rsp_provider::create_provider;
-use sp1_sdk::{include_elf, ProverClient};
+use zkm_sdk::{include_elf, ProverClient};
 use tracing::{error, info};
 use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
 
@@ -32,9 +32,9 @@ async fn main() -> eyre::Result<()> {
         .with(fmt::layer())
         .with(
             EnvFilter::from_default_env()
-                .add_directive("sp1_core_machine=warn".parse().unwrap())
-                .add_directive("sp1_core_executor=warn".parse().unwrap())
-                .add_directive("sp1_prover=warn".parse().unwrap()),
+                .add_directive("zkm_core_machine=warn".parse().unwrap())
+                .add_directive("zkm_core_executor=warn".parse().unwrap())
+                .add_directive("zkm_prover=warn".parse().unwrap()),
         )
         .init();
 

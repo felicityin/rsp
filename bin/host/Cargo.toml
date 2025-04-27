@@ -33,9 +33,9 @@ reth-primitives-traits.workspace = true
 # revm
 revm-bytecode.workspace = true
 
-# sp1
-sp1-sdk.workspace = true
-sp1-core-executor.workspace = true
+# zkMIPS
+zkm-sdk.workspace = true
+zkm-core-executor.workspace = true
 
 [dev-dependencies]
 alloy-network.workspace = true
@@ -45,4 +45,4 @@ thousands = "0.2.0"
 madato = "0.7.0"
 
 [build-dependencies]
-sp1-build.workspace = true
+zkm-build.workspace = true
