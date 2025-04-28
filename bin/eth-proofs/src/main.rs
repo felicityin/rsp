@@ -5,6 +5,7 @@ use clap::Parser;
 use cli::Args;
 use eth_proofs::EthProofsClient;
 use futures::{future::ready, StreamExt};
+use reqwest::Client;
 use rsp_host_executor::{
     alerting::AlertingClient, create_eth_block_execution_strategy_factory, BlockExecutor,
     EthExecutorComponents, FullExecutor,
@@ -62,12 +63,13 @@ async fn main() -> eyre::Result<()> {
     let mut stream =
         subscription.into_stream().filter(|h| ready(h.number % args.block_interval == 0));
 
-    let mut builder = ProverClient::builder().cpu();
-    if let Some(endpoint) = &args.moongate_endpoint {
-        builder = builder.with_moongate_endpoint(endpoint)
+    // let mut builder = ProverClient::builder().cuda();
+    if let Some(_endpoint) = &args.moongate_endpoint {
+    //     builder = builder.with_moongate_endpoint(endpoint)
     }
 
-    let client = Arc::new(builder.build());
+    // let client = Arc::new(builder.build());
+    let client = Arc::new(ProverClient::new());
 
     let executor = FullExecutor::<EthExecutorComponents<_, _>, _>::try_new(
         http_provider.clone(),
