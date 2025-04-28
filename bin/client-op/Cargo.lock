@@ -4893,6 +4893,7 @@ dependencies = [
 [[package]]
 name = "zkm-lib"
 version = "1.0.0"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#b2775284c7f3d779827c42bdc34cadf8a0d30b34"
 dependencies = [
  "bincode",
  "cfg-if",
@@ -4905,6 +4906,7 @@ dependencies = [
 [[package]]
 name = "zkm-primitives"
 version = "1.0.0"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#b2775284c7f3d779827c42bdc34cadf8a0d30b34"
 dependencies = [
  "bincode",
  "hex",
@@ -4922,6 +4924,7 @@ dependencies = [
 [[package]]
 name = "zkm-zkvm"
 version = "1.0.0"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#b2775284c7f3d779827c42bdc34cadf8a0d30b34"
 dependencies = [
  "bincode",
  "cfg-if",

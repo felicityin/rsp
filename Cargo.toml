@@ -52,14 +52,14 @@ rsp-primitives = { path = "./crates/primitives" }
 rsp-provider = { path = "./crates/provider" }
 
 # zkMIPS
-# zkm-build = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-# zkm-core-executor = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-# zkm-prover = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-# zkm-sdk = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-zkm-build = { path = "../zkMIPS/crates/build" }
-zkm-core-executor = { path = "../zkMIPS/crates/core/executor" }
-zkm-prover = { path = "../zkMIPS/crates/prover" }
-zkm-sdk = { path = "../zkMIPS/crates/sdk" }
+zkm-build = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-core-executor = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-prover = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-sdk = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+# zkm-build = { path = "../zkMIPS/crates/build" }
+# zkm-core-executor = { path = "../zkMIPS/crates/core/executor" }
+# zkm-prover = { path = "../zkMIPS/crates/prover" }
+# zkm-sdk = { path = "../zkMIPS/crates/sdk" }
 
 # reth
 reth-primitives-traits = { git = "https://github.com/paradigmxyz/reth", tag = "v1.3.10", default-features = false }
