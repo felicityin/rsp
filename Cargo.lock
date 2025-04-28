@@ -2177,19 +2177,15 @@ checksum = "1c7a8fb8a9fbf66c1f703fe16184d10ca0ee9d23be5b4436400408ba54a95005"
 [[package]]
 name = "ecdsa"
 version = "0.16.9"
-source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=ecdsa-tmp-1#1c108f450817f83dee19ff69c5359e4d1d725a32"
+source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=ecdsa-tmp-3#2fafd2727beb30636d6017e259661942c763f383"
 dependencies = [
- "anyhow",
- "cfg-if",
  "der",
  "digest 0.10.7",
  "elliptic-curve",
- "hex-literal",
  "rfc6979",
  "serdect",
  "signature",
  "spki",
- "zkm-lib",
 ]
 
 [[package]]
@@ -3427,7 +3423,7 @@ dependencies = [
 [[package]]
 name = "k256"
 version = "0.13.4"
-source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=k256-tmp#6292bf662fe0c3d9934df17c8f1ce23c45a95631"
+source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=k256-tmp-1#85a8fcf6051d096c439d13af3dc97cf1ff3f95af"
 dependencies = [
  "cfg-if",
  "ecdsa",
@@ -4139,7 +4135,7 @@ checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 [[package]]
 name = "p256"
 version = "0.13.2"
-source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=p256-tmp#34a47d3048c254acca2865cffbad9e071cd2ff3f"
+source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=p256-tmp-1#9d19e9c150a414b1af9779b56be3d4f95138a57b"
 dependencies = [
  "ecdsa",
  "elliptic-curve",
@@ -4775,7 +4771,7 @@ dependencies = [
 [[package]]
 name = "primeorder"
 version = "0.13.1"
-source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=p256-tmp#34a47d3048c254acca2865cffbad9e071cd2ff3f"
+source = "git+https://github.com/zkMIPS-patches/elliptic-curves?branch=p256-tmp-1#9d19e9c150a414b1af9779b56be3d4f95138a57b"
 dependencies = [
  "elliptic-curve",
 ]
@@ -5951,7 +5947,7 @@ dependencies = [
 [[package]]
 name = "rfc6979"
 version = "0.4.0"
-source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=ecdsa-tmp-1#1c108f450817f83dee19ff69c5359e4d1d725a32"
+source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=ecdsa-tmp-3#2fafd2727beb30636d6017e259661942c763f383"
 dependencies = [
  "hmac",
  "subtle",
