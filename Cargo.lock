@@ -2171,19 +2171,16 @@ checksum = "1c7a8fb8a9fbf66c1f703fe16184d10ca0ee9d23be5b4436400408ba54a95005"
 [[package]]
 name = "ecdsa"
 version = "0.16.9"
-source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#5217f3805a825f95ef400827c96010f2fc009679"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ee27f32b5c5292967d2d4a9d7f1e0b0aed2c15daded5a60300e4abb9d8020bca"
 dependencies = [
- "anyhow",
- "cfg-if",
  "der",
  "digest 0.10.7",
  "elliptic-curve",
- "hex-literal",
  "rfc6979",
  "serdect",
  "signature",
  "spki",
- "zkm-lib 1.0.0 (git+https://github.com/zkMIPS/zkMIPS.git)",
 ]
 
 [[package]]
@@ -3377,16 +3374,16 @@ dependencies = [
 [[package]]
 name = "k256"
 version = "0.13.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f6e3919bbaa2945715f0bb6d3934a173d1e9a59ac23767fbaaef277265a7411b"
 dependencies = [
  "cfg-if",
  "ecdsa",
  "elliptic-curve",
- "hex",
  "once_cell",
  "serdect",
  "sha2",
  "signature",
- "zkm-lib 1.0.0",
 ]
 
 [[package]]
@@ -4088,13 +4085,13 @@ checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 [[package]]
 name = "p256"
 version = "0.13.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c9863ad85fa8f4460f9c48cb909d38a0d689dba1f6f6988a5e3e0d31071bcd4b"
 dependencies = [
  "ecdsa",
  "elliptic-curve",
- "hex",
  "primeorder",
  "sha2",
- "zkm-lib 1.0.0",
 ]
 
 [[package]]
@@ -4697,7 +4694,9 @@ dependencies = [
 
 [[package]]
 name = "primeorder"
-version = "0.13.1"
+version = "0.13.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "353e1ca18966c16d9deb1c69278edbc5f194139612772bd9537af60ac231e1e6"
 dependencies = [
  "elliptic-curve",
 ]
@@ -5834,7 +5833,8 @@ dependencies = [
 [[package]]
 name = "rfc6979"
 version = "0.4.0"
-source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#5217f3805a825f95ef400827c96010f2fc009679"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f8dd2a808d456c4a54e300a23e9f5a67e122c3024119acbfd73e3bf664491cb2"
 dependencies = [
  "hmac",
  "subtle",
@@ -8545,7 +8545,7 @@ dependencies = [
  "typenum",
  "vec_map",
  "zkm-curves",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-stark",
 ]
 
@@ -8597,7 +8597,7 @@ dependencies = [
  "zkm-core-executor",
  "zkm-curves",
  "zkm-derive",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-stark",
 ]
 
@@ -8619,7 +8619,7 @@ dependencies = [
  "serde",
  "snowbridge-amcl",
  "typenum",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-stark",
 ]
 
@@ -8635,18 +8635,6 @@ dependencies = [
 [[package]]
 name = "zkm-lib"
 version = "1.0.0"
-dependencies = [
- "bincode",
- "cfg-if",
- "elliptic-curve",
- "serde",
- "sha2",
- "zkm-primitives 1.0.0",
-]
-
-[[package]]
-name = "zkm-lib"
-version = "1.0.0"
 source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#b2775284c7f3d779827c42bdc34cadf8a0d30b34"
 dependencies = [
  "bincode",
@@ -8654,36 +8642,7 @@ dependencies = [
  "elliptic-curve",
  "serde",
  "sha2",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
-]
-
-[[package]]
-name = "zkm-lib"
-version = "1.0.0"
-source = "git+https://github.com/zkMIPS/zkMIPS.git#e44baab1da54fba7c94241896e69f54431d743a0"
-dependencies = [
- "bincode",
- "cfg-if",
- "elliptic-curve",
- "serde",
- "sha2",
-]
-
-[[package]]
-name = "zkm-primitives"
-version = "1.0.0"
-dependencies = [
- "bincode",
- "hex",
- "lazy_static",
- "num-bigint 0.4.6",
- "p3-field",
- "p3-koala-bear",
- "p3-monty-31",
- "p3-poseidon2",
- "p3-symmetric",
- "serde",
- "sha2",
+ "zkm-primitives",
 ]
 
 [[package]]
@@ -8735,7 +8694,7 @@ dependencies = [
  "tracing-subscriber",
  "zkm-core-executor",
  "zkm-core-machine",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-recursion-circuit",
  "zkm-recursion-compiler",
  "zkm-recursion-core",
@@ -8769,7 +8728,7 @@ dependencies = [
  "zkm-core-executor",
  "zkm-core-machine",
  "zkm-derive",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-recursion-compiler",
  "zkm-recursion-core",
  "zkm-recursion-gnark-ffi",
@@ -8791,7 +8750,7 @@ dependencies = [
  "tracing",
  "vec_map",
  "zkm-core-machine",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-recursion-core",
  "zkm-recursion-derive",
  "zkm-stark",
@@ -8829,7 +8788,7 @@ dependencies = [
  "zkhash",
  "zkm-core-machine",
  "zkm-derive",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-stark",
 ]
 
@@ -8905,7 +8864,7 @@ dependencies = [
  "zkm-build",
  "zkm-core-executor",
  "zkm-core-machine",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-prover",
  "zkm-stark",
 ]
@@ -8948,7 +8907,7 @@ dependencies = [
  "tracing-forest",
  "tracing-subscriber",
  "zkm-derive",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-primitives",
  "zkm-zkvm",
 ]
 
@@ -8964,8 +8923,8 @@ dependencies = [
  "rand 0.8.5",
  "serde",
  "sha2",
- "zkm-lib 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
- "zkm-primitives 1.0.0 (git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps)",
+ "zkm-lib",
+ "zkm-primitives",
 ]
 
 [[package]]

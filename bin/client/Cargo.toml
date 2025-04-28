@@ -27,5 +27,5 @@ bn = { git = "https://github.com/zkMIPS-patches/bn", branch = "patch-0.6.0", pac
 # p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-p256-0.13.2" }
 # k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "k256" }
 # p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "p256" }
-k256 = { path = "../../../patch/elliptic-curves-k256/k256" }
-p256 = { path = "../../../patch/elliptic-curves-p256/p256" }
+# k256 = { path = "../../../patch/elliptic-curves-k256/k256" }
+# p256 = { path = "../../../patch/elliptic-curves-p256/p256" }
