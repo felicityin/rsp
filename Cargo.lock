@@ -7206,7 +7206,7 @@ dependencies = [
 [[package]]
 name = "test-artifacts"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "zkm-build",
 ]
@@ -8627,7 +8627,7 @@ dependencies = [
 [[package]]
 name = "zkm-build"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "anyhow",
  "cargo_metadata",
@@ -8639,7 +8639,7 @@ dependencies = [
 [[package]]
 name = "zkm-core-executor"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "anyhow",
  "bincode",
@@ -8680,7 +8680,7 @@ dependencies = [
 [[package]]
 name = "zkm-core-machine"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "bincode",
  "cfg-if",
@@ -8732,7 +8732,7 @@ dependencies = [
 [[package]]
 name = "zkm-curves"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "cfg-if",
  "curve25519-dalek",
@@ -8754,7 +8754,7 @@ dependencies = [
 [[package]]
 name = "zkm-derive"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "quote",
  "syn 1.0.109",
@@ -8763,7 +8763,7 @@ dependencies = [
 [[package]]
 name = "zkm-lib"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "bincode",
  "cfg-if",
@@ -8776,7 +8776,7 @@ dependencies = [
 [[package]]
 name = "zkm-primitives"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "bincode",
  "hex",
@@ -8794,7 +8794,7 @@ dependencies = [
 [[package]]
 name = "zkm-prover"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "anyhow",
  "bincode",
@@ -8833,7 +8833,7 @@ dependencies = [
 [[package]]
 name = "zkm-recursion-circuit"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "hashbrown 0.14.5",
  "itertools 0.13.0",
@@ -8866,7 +8866,7 @@ dependencies = [
 [[package]]
 name = "zkm-recursion-compiler"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "backtrace",
  "itertools 0.13.0",
@@ -8887,7 +8887,7 @@ dependencies = [
 [[package]]
 name = "zkm-recursion-core"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "backtrace",
  "ff 0.13.1",
@@ -8923,7 +8923,7 @@ dependencies = [
 [[package]]
 name = "zkm-recursion-derive"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "quote",
  "syn 1.0.109",
@@ -8932,7 +8932,7 @@ dependencies = [
 [[package]]
 name = "zkm-recursion-gnark-ffi"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "anyhow",
  "bincode",
@@ -8957,7 +8957,7 @@ dependencies = [
 [[package]]
 name = "zkm-sdk"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "alloy-signer",
  "alloy-signer-local",
@@ -9000,7 +9000,7 @@ dependencies = [
 [[package]]
 name = "zkm-stark"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "arrayref",
  "hashbrown 0.14.5",
@@ -9042,7 +9042,7 @@ dependencies = [
 [[package]]
 name = "zkm-zkvm"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#e199a18ca79a9ea3e5c6467f9cae16f2a1522f69"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#852bdfbcc3df2624df08e51d405149d333c3de3d"
 dependencies = [
  "bincode",
  "cfg-if",
