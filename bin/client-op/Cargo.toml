@@ -22,11 +22,8 @@ tracing = { version = "0.1", features = ["max_level_off", "release_max_level_off
 # Precompile patches
 sha2 = { git = "https://github.com/zkMIPS-patches/RustCrypto-hashes", branch = "patch-sha2-0.10.8", package = "sha2" }
 bn = { git = "https://github.com/zkMIPS-patches/bn", branch = "patch-0.6.0", package = "substrate-bn" }
-# sha3 = { git = "https://github.com/sp1-patches/RustCrypto-hashes", tag = "patch-sha3-0.10.8-sp1-4.0.0" }
-# k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-k256-0.13.4" }
-# p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-p256-0.13.2" }
-# k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "k256-tmp-1" }
-p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "p256-tmp-1" }
-# k256 = { path = "../../../patch/elliptic-curves-k256/k256" }
-# p256 = { path = "../../../patch/elliptic-curves-p256/p256" }
+k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-k256-0.13.4" }
+p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-p256-0.13.2" }
+# k256 = { path = "../../../patch/elliptic-curves/k256", default-features = false, features = ["ecdsa"] }
+# 256 = { path = "../../../patch/elliptic-curves-p256/p256" }
 alloy-primitives = { git = "https://github.com/zkMIPS-patches/core.git", branch = "patch-alloy-primitives-1.0.0", default-features = false, features = ["sha3-keccak", "map-foldhash", "rlp"] }

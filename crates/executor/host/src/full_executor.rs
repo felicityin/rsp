@@ -84,6 +84,8 @@ pub trait BlockExecutor<C: ExecutorComponents> {
 
         stdin.write_vec(buffer);
 
+        crate::utils::zkm_dump(&self.pk().elf, &stdin);
+
         // Only execute the program.
         let (stdin, execute_result) =
             execute_client(client_input.current_block.number, self.client(), self.pk(), stdin)

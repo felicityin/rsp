@@ -19,8 +19,10 @@ latest_proof.json
 # Env
 .env
 
-# SP1 ELF files
+# zkMIPS ELF files
 elf
+program.bin
+stdin.bin
 
 **.csv
 
