@@ -52,10 +52,10 @@ rsp-primitives = { path = "./crates/primitives" }
 rsp-provider = { path = "./crates/provider" }
 
 # zkMIPS
-zkm-build = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-zkm-core-executor = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-zkm-prover = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
-zkm-sdk = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-build = { git = "https://github.com/felicityin/zkMIPS", branch = "reth" }
+zkm-core-executor = { git = "https://github.com/felicityin/zkMIPS", branch = "reth" }
+zkm-prover = { git = "https://github.com/felicityin/zkMIPS", branch = "reth" }
+zkm-sdk = { git = "https://github.com/felicityin/zkMIPS", branch = "reth" }
 # zkm-build = { path = "../zkMIPS/crates/build" }
 # zkm-core-executor = { path = "../zkMIPS/crates/core/executor" }
 # zkm-prover = { path = "../zkMIPS/crates/prover" }
@@ -143,4 +143,4 @@ sha2 = { git = "https://github.com/zkMIPS-patches/RustCrypto-hashes", branch = "
 bn = { git = "https://github.com/zkMIPS-patches/bn", branch = "patch-0.6.0", package = "substrate-bn" }
 k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-k256-0.13.4" }
 p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-p256-0.13.2" }
-alloy-primitives = { git = "https://github.com/zkMIPS-patches/core.git", branch = "patch-alloy-primitives-1.0.0", default-features = false, features = ["sha3-keccak", "map-foldhash", "rlp"] }
+alloy-primitives = { git = "https://github.com/zkMIPS-patches/core.git", branch = "patch-alloy-primitives-1.0.0" }

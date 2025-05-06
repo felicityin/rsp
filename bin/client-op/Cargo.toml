@@ -11,7 +11,7 @@ bincode = "1.3.3"
 rsp-client-executor = { path = "../../crates/executor/client", features = ["optimism"]}
 
 # zkMIPS
-zkm-zkvm = { git = "https://github.com/felicityin/zkMIPS", branch = "upgrade-deps" }
+zkm-zkvm = { git = "https://github.com/felicityin/zkMIPS", branch = "reth" }
 # zkm-zkvm = { path = "../../../zkMIPS/crates/zkvm/entrypoint" }
 
 # Statically turns off logging
@@ -26,4 +26,4 @@ k256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "pa
 p256 = { git = "https://github.com/zkMIPS-patches/elliptic-curves", branch = "patch-p256-0.13.2" }
 # k256 = { path = "../../../patch/elliptic-curves/k256", default-features = false, features = ["ecdsa"] }
 # 256 = { path = "../../../patch/elliptic-curves-p256/p256" }
-alloy-primitives = { git = "https://github.com/zkMIPS-patches/core.git", branch = "patch-alloy-primitives-1.0.0", default-features = false, features = ["sha3-keccak", "map-foldhash", "rlp"] }
+alloy-primitives = { git = "https://github.com/zkMIPS-patches/core.git", branch = "patch-alloy-primitives-1.0.0" }

@@ -6,8 +6,8 @@ use alloy_provider::{network::AnyNetwork, Provider, RootProvider};
 use clap::Parser;
 use rsp_host_executor::Config;
 use rsp_primitives::genesis::Genesis;
-use zkm_sdk::ZKMProofKind;
 use url::Url;
+use zkm_sdk::ZKMProofKind;
 
 /// The arguments for the host executable.
 #[derive(Debug, Clone, Parser)]
