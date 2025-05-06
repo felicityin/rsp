@@ -96,8 +96,8 @@ impl HostArgs {
             rpc_url,
             cache_dir: self.cache_dir.clone(),
             custom_beneficiary: self.custom_beneficiary,
-            // prove_mode: self.prove.then_some(ZKMProofKind::Compressed),
-            prove_mode: self.prove.then_some(ZKMProofKind::Core),
+            prove_mode: self.prove.then_some(ZKMProofKind::Compressed),
+            // prove_mode: self.prove.then_some(ZKMProofKind::Core),
             opcode_tracking: self.opcode_tracking,
         };
 
