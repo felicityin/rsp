@@ -5,7 +5,6 @@ use clap::Parser;
 use cli::Args;
 use eth_proofs::EthProofsClient;
 use futures::{future::ready, StreamExt};
-use reqwest::Client;
 use rsp_host_executor::{
     alerting::AlertingClient, create_eth_block_execution_strategy_factory, BlockExecutor,
     EthExecutorComponents, FullExecutor,

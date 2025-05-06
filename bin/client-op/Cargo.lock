@@ -1399,7 +1399,7 @@ checksum = "1c7a8fb8a9fbf66c1f703fe16184d10ca0ee9d23be5b4436400408ba54a95005"
 [[package]]
 name = "ecdsa"
 version = "0.16.9"
-source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#4977412885cf9097b303d4b58fa36fec39aa1065"
+source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#fed1f3bbd4207450cebcc6d601c226f2cccccb3b"
 dependencies = [
  "der",
  "digest 0.10.7",
@@ -3623,7 +3623,7 @@ dependencies = [
 [[package]]
 name = "rfc6979"
 version = "0.4.0"
-source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#4977412885cf9097b303d4b58fa36fec39aa1065"
+source = "git+https://github.com/zkMIPS-patches/signatures.git?branch=patch-ecdsa-0.16.9#fed1f3bbd4207450cebcc6d601c226f2cccccb3b"
 dependencies = [
  "hmac",
  "subtle",
@@ -4892,7 +4892,7 @@ dependencies = [
 [[package]]
 name = "zkm-lib"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#5204e37883de7dd28108ffec7f8d6cc21cb13afe"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#2fdc4c961cc5b4c262d3f1db03c9c8dabd7359cb"
 dependencies = [
  "bincode",
  "cfg-if",
@@ -4917,7 +4917,7 @@ dependencies = [
 [[package]]
 name = "zkm-primitives"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#5204e37883de7dd28108ffec7f8d6cc21cb13afe"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#2fdc4c961cc5b4c262d3f1db03c9c8dabd7359cb"
 dependencies = [
  "bincode",
  "hex",
@@ -4935,7 +4935,7 @@ dependencies = [
 [[package]]
 name = "zkm-zkvm"
 version = "1.0.0"
-source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#5204e37883de7dd28108ffec7f8d6cc21cb13afe"
+source = "git+https://github.com/felicityin/zkMIPS?branch=upgrade-deps#f471eec8698a313eda9efcb5e178d2d17ff64f70"
 dependencies = [
  "bincode",
  "cfg-if",
