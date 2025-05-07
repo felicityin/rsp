@@ -29,10 +29,6 @@ async fn main() -> eyre::Result<()> {
         std::env::set_var("RUST_LOG", "info");
     }
 
-    if std::env::var("ZKM_PROVER").is_err() {
-        std::env::set_var("ZKM_PROVER", "local");
-    }
-
     // Initialize the logger.
     tracing_subscriber::registry()
         .with(fmt::layer())
